@@ -41,6 +41,7 @@ def main():
         "What's your favorite sweet snack?": "Sweet",
         "What's your favorite drink?": "Drink"
     }, inplace=True)
+    df = df.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
     df.drop_duplicates(subset=["First Name", "Last Name"], keep='last', inplace=True)
 
     sort_birthdays(df)
